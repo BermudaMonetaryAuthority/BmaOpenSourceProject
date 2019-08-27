@@ -18,8 +18,11 @@ from dataclasses import dataclass
 @dataclass
 class DateTimeStruct:
     #to contain all relevant date based inputs used for creating interest rate objects and Dates
-    effectiveDate:ql.Date = ql.Date(30, 9, 2019)
-    terminationDate = ql.Date(30, 9, 2118)
+    year:int=2019
+    month:int=9
+    day: int=30
+    effectiveDate:ql.Date = ql.Date(day, month, year)
+    terminationDate = ql.Date(30, 9, year+99)
     tenor = ql.Period(ql.Annual)
     calendar = ql.UnitedStates()
     businessConvention = ql.Following
